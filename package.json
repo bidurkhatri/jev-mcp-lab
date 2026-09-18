@@ -1,0 +1,46 @@
+{
+  "name": "mcp-policy-fixtures",
+  "version": "0.1.0-rc.1",
+  "private": true,
+  "description": "Deterministic policy and protocol fixtures for testing MCP integrations",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "src/",
+    "fixtures/",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "SECURITY.md",
+    "examples/"
+  ],
+  "exports": {
+    "./advisory": "./src/advisory.js",
+    "./audit": "./src/audit.js",
+    "./audit-store": "./src/audit-store.js",
+    "./capabilities": "./src/capabilities.js",
+    "./content": "./src/content.js",
+    "./correlation": "./src/correlation.js",
+    "./duplex": "./src/duplex.js",
+    "./http-session": "./src/http-session.js",
+    "./lifecycle": "./src/lifecycle.js",
+    "./limits": "./src/limits.js",
+    "./load-policy": "./src/load-policy.js",
+    "./policy": "./src/policy.js",
+    "./protocol": "./src/protocol.js",
+    "./redact": "./src/redact.js",
+    "./support": "./src/support.js",
+    "./fixtures/*": "./fixtures/*"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/*.js && node --check scripts/*.js && node --check examples/*.mjs && node --test",
+    "fixtures:validate": "node scripts/validate-fixtures.js",
+    "fixtures:replay": "node scripts/replay-duplex.js",
+    "release:check": "node scripts/release-check.js",
+    "package:check": "node scripts/check-package.js"
+  },
+  "license": "Apache-2.0"
+}

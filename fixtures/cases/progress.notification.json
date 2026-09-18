@@ -1,0 +1,1 @@
+{"fixtureVersion":1,"protocolVersion":"2025-06-18","direction":"server-to-client","transport":"streamable-http","message":{"jsonrpc":"2.0","method":"notifications/progress","params":{"progressToken":"opaque-1","progress":1,"total":2}},"expected":{"forward":true,"decision":"not-applicable"}}

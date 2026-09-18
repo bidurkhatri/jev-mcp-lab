@@ -1,0 +1,1 @@
+{"fixtureVersion":1,"protocolVersion":"2025-06-18","direction":"client-to-server","transport":"stdio","message":{"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":8,"reason":"fixture"}},"expected":{"forward":true,"decision":"not-applicable"}}

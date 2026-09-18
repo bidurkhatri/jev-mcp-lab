@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/mcp-policy-fixtures/record-replay.schema.json",
+  "title": "MCP record/replay fixture",
+  "type": "object",
+  "required": ["fixtureVersion", "protocolVersion", "direction", "message"],
+  "additionalProperties": false,
+  "properties": {
+    "fixtureVersion": { "const": 1 },
+    "protocolVersion": { "type": "string", "minLength": 1 },
+    "direction": { "enum": ["client-to-server", "server-to-client"] },
+    "transport": { "enum": ["stdio", "streamable-http", "sse-legacy"] },
+    "session": { "type": ["string", "null"] },
+    "message": { "type": "object" },
+    "expected": {
+      "type": "object",
+      "properties": {
+        "forward": { "type": "boolean" },
+        "decision": { "enum": ["allow", "deny", "not-applicable"] },
+        "reason": { "type": "string" }
+      },
+      "required": ["forward", "decision"],
+      "additionalProperties": false
+    }
+  }
+}

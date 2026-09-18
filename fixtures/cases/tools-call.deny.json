@@ -1,0 +1,1 @@
+{"fixtureVersion":1,"protocolVersion":"2025-06-18","direction":"client-to-server","transport":"stdio","message":{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"shell","arguments":{"command":"echo no"}}},"expected":{"forward":false,"decision":"deny","reason":"deterministic policy"}}

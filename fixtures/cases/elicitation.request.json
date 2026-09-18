@@ -1,0 +1,1 @@
+{"fixtureVersion":1,"protocolVersion":"2025-06-18","direction":"server-to-client","transport":"stdio","message":{"jsonrpc":"2.0","id":11,"method":"elicitation/create","params":{"message":"Choose","requestedSchema":{"type":"object","properties":{"answer":{"type":"string"}},"required":["answer"]}}},"expected":{"forward":true,"decision":"not-applicable"}}
