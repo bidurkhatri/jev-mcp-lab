@@ -4,7 +4,7 @@ Small, dependency-free building blocks for testing policy and protocol behavior 
 
 MCP connects clients to tools and data. That connection creates two separate problems: deciding which calls are allowed, and preserving protocol state while messages move between links. This project makes both problems explicit and testable. It provides a deterministic policy core, checked protocol fixtures, an in-memory duplex harness, bounded validation helpers, and tamper-evident audit primitives.
 
-This is a release candidate. It is not published and not a production security boundary.
+The project is public source code under Apache-2.0. It supplies tested primitives, not a complete production security boundary.
 
 ## Who this is for
 
@@ -44,15 +44,14 @@ Use the project if you are building or reviewing an MCP client, server, proxy, p
 Requirements: Node.js 20 or 22 and npm.
 
 ```sh
-git clone <repository-url>
-cd mcp-policy-fixtures
+git clone https://github.com/bidurkhatri/jev-mcp-lab.git
+cd jev-mcp-lab
 npm ci
 npm run check
 npm run fixtures:validate
 npm run fixtures:replay
 ```
 
-The repository currently stays private, so replace `<repository-url>` only after the owner approves a public URL.
 
 Run the examples from the repository root:
 
@@ -184,13 +183,13 @@ Current evidence is nine fixtures validated and nine replayed with matching outc
 
 ## Supported MCP surface
 
-The candidate has tested primitives for selected lifecycle, tools, resources, prompts, logging, progress, cancellation, sampling, elicitation, roots, capabilities, content, and Streamable HTTP constraints. Some areas have only an envelope fixture or mapping primitive. None is claimed as a complete adapter.
+The project has tested primitives for selected lifecycle, tools, resources, prompts, logging, progress, cancellation, sampling, elicitation, roots, capabilities, content, and Streamable HTTP constraints. Some areas have only an envelope fixture or mapping primitive. None is claimed as a complete adapter.
 
 Read [the conformance matrix](docs/CONFORMANCE.md) for the exact evidence and gaps. The matrix is the claim boundary. A future adapter must add end-to-end framing, authentication, authorization, reconnect, expiration, and application behavior tests before it can claim transport support.
 
 ## Security and trust model
 
-Deterministic policy is the only authorization input in this candidate. Advisory output is untrusted context. Explicit deny takes priority, invalid policy fails closed, unsupported protocol traffic fails explicitly, and credentials are redacted before audit hashing or persistence.
+Deterministic policy is the only authorization input in this library. Advisory output is untrusted context. Explicit deny takes priority, invalid policy fails closed, unsupported protocol traffic fails explicitly, and credentials are redacted before audit hashing or persistence.
 
 These controls do not replace:
 
@@ -205,16 +204,16 @@ Audit files use mode `0600`, serialize appends within one process, sync each rec
 
 ## Evidence
 
-At this release candidate:
+Current repository evidence:
 
 - 73 repository tests pass on the local release check;
 - nine fixtures validate and replay with expected outcomes;
 - CI runs the same checks on Node.js 20 and 22;
 - `npm audit` reports no known dependencies or vulnerabilities;
 - the package dry run contains only the declared runtime files;
-- the candidate preflight rejects excluded research, patch, credential-like, and non-owner attribution material.
+- the repository check rejects excluded research, patch, credential-like, and non-owner attribution material.
 
-Numbers describe this exact candidate, not future versions. Re-run the commands below rather than copying the counts into another release.
+Numbers describe the current main commit, not future versions. Re-run the commands below rather than copying the counts into another release.
 
 ```sh
 npm ci
@@ -222,7 +221,7 @@ npm run check
 npm run fixtures:validate
 npm run fixtures:replay
 npm audit --audit-level=low
-npm run release:check
+npm run repo:check
 npm run package:check
 ```
 
@@ -241,12 +240,10 @@ The project will stay a library and fixture corpus unless a later adapter has a 
 
 ## Contributing
 
-The project remains a private candidate until the owner approves its exact commit, README claims, and visibility. Until then, do not mirror or announce it.
+Changes should include positive and negative tests, update the conformance matrix when behavior changes, and avoid claims broader than the test surface. Run the full evidence command block before proposing a change. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-After release, changes should include positive and negative tests, update the conformance matrix when behavior changes, and avoid claims broader than the test surface. Run the full evidence command block before proposing a change. See [CONTRIBUTING.md](CONTRIBUTING.md).
+## Project and package state
 
-## Release state
+The project name is **MCP Policy Fixtures**. The GitHub repository is `jev-mcp-lab`, and the reserved package identifier is `mcp-policy-fixtures`. `package.json` stays `private: true` because no npm package is published. The source repository is public under Apache-2.0.
 
-Recommended project name: **MCP Policy Fixtures** (`mcp-policy-fixtures`). The candidate remains `private: true` and uses the Apache License 2.0 approved by the owner. Package publication, a GitHub Release, registry submission, and announcements are separate approvals from repository visibility.
-
-See [the candidate decision](docs/PUBLIC_CANDIDATE.md) and [release checklist](docs/RELEASE_CHECKLIST.md).
+See [project scope](docs/PROJECT_SCOPE.md) and the [maintenance checklist](docs/RELEASE_CHECKLIST.md).

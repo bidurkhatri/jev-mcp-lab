@@ -2,7 +2,7 @@
 
 This matrix prevents "transparent proxy" or complete-conformance claims. "Tested primitive" means executable unit or in-memory replay evidence exists. It does not mean a deployed transport adapter supports the whole area.
 
-| Area | Candidate evidence | Not established |
+| Area | Project evidence | Not established |
 |---|---|---|
 | JSON-RPC envelopes | request, response, error and notification classification; malformed envelope rejection | wire framing and transport delivery |
 | initialization and lifecycle | ordered state transitions and negotiated version allowlist | a complete client/server handshake over a real transport |

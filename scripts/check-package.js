@@ -19,7 +19,7 @@ try {
   const extra = [...paths].filter((path) => !expected.has(path));
   if (missing.length || extra.length) throw new Error(`package manifest mismatch: missing=${missing.join(",")} extra=${extra.join(",")}`);
   const packageJson = JSON.parse(await readFile("package.json", "utf8"));
-  if (packageJson.private !== true || packageJson.license !== "Apache-2.0") throw new Error("candidate privacy or approved license changed");
+  if (packageJson.private !== true || packageJson.license !== "Apache-2.0") throw new Error("package privacy or license metadata changed");
   process.stdout.write(`${JSON.stringify({ packageManifestPassed: true, fileCount: paths.size, packedBytes: result.size, unpackedBytes: result.unpackedSize }, null, 2)}\n`);
 } finally {
   await rm(dir, { recursive: true, force: true });

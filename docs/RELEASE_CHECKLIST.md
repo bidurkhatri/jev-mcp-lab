@@ -1,25 +1,25 @@
-# Release checklist
+# Maintenance checklist
 
-## Automated candidate checks
+Run these checks before merging a change or preparing a versioned artifact:
 
 ```sh
 npm ci
 npm run check
 npm run fixtures:validate
 npm run fixtures:replay
-npm audit
-npm run release:check
-npm pack --dry-run
+npm audit --audit-level=low
+npm run repo:check
+npm run package:check
 ```
 
-## Owner gates
+Review the change for:
 
-- [x] Select the generic standalone project shape.
-- [ ] Approve the exact public name: MCP Policy Fixtures / `mcp-policy-fixtures`.
-- [x] Approve and apply Apache License 2.0.
-- [ ] Review the exact candidate commit, included file manifest and README claims.
-- [ ] Recheck package, repository and trademark/name availability.
-- [ ] Approve changing visibility or creating a new public repository from the candidate history.
-- [ ] Separately approve any package publication, GitHub release, registry submission or announcement.
+- [ ] claims that match executable evidence in `docs/CONFORMANCE.md`;
+- [ ] positive and negative tests for changed behavior;
+- [ ] no credentials, private traces, personal data, or copied third-party material;
+- [ ] accurate package contents and metadata;
+- [ ] updates to the threat model and limitations when trust boundaries change;
+- [ ] a clean install on supported Node.js versions;
+- [ ] a focused changelog entry when behavior changes.
 
-A visibility change does not authorize package publication or outreach.
+Package publication, GitHub Releases, registry submissions, and announcements are separate operations and are not performed by the repository checks.

@@ -27,5 +27,5 @@ jobs:
       - run: npm run fixtures:validate
       - run: npm run fixtures:replay
       - run: npm audit --audit-level=low
-      - run: npm run release:check
+      - run: npm run repo:check
       - run: npm run package:check

@@ -1,6 +1,6 @@
 {
   "name": "mcp-policy-fixtures",
-  "version": "0.1.0-rc.1",
+  "version": "0.1.0",
   "private": true,
   "description": "Deterministic policy and protocol fixtures for testing MCP integrations",
   "type": "module",
@@ -39,8 +39,8 @@
     "check": "node --check src/*.js && node --check scripts/*.js && node --check examples/*.mjs && node --test",
     "fixtures:validate": "node scripts/validate-fixtures.js",
     "fixtures:replay": "node scripts/replay-duplex.js",
-    "release:check": "node scripts/release-check.js",
-    "package:check": "node scripts/check-package.js"
+    "package:check": "node scripts/check-package.js",
+    "repo:check": "node scripts/release-check.js"
   },
   "license": "Apache-2.0"
 }

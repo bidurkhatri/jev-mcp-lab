@@ -29,7 +29,7 @@
 - replay, resource exhaustion and oversized content
 - dependency or release artifact compromise
 
-## Controls in this candidate
+## Controls in this project
 
 - default deny, explicit allow and deny precedence
 - advisory isolation: provider success, failure and timeout cannot change authorization
